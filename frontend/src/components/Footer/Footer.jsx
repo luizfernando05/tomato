@@ -20,7 +20,7 @@ const Footer = () => {
             <img src={assets.linkedin_icon} alt="" />
           </div>
         </div>
-        <div className="footer-content-certer">
+        <div className="footer-content-center">
           <h2>COMPANY</h2>
           <ul>
             <li>Home</li>
@@ -29,7 +29,7 @@ const Footer = () => {
             <li>Privacy Policies</li>
           </ul>
         </div>
-        <div className="food-content-right">
+        <div className="footer-content-right">
           <h2>GET IN TOUCH</h2>
           <ul>
             <li>+1-212-456-7890</li>
