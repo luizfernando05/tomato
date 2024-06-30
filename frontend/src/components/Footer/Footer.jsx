@@ -1,8 +1,48 @@
 import React from "react";
 import "./Footer.css";
+import { assets } from "../../assets/frontend_assets/assets";
 
 const Footer = () => {
-  return <div className="footer">Footer</div>;
+  return (
+    <div className="footer" id="footer">
+      <div className="footer-content">
+        <div className="footer-content-left">
+          <img src={assets.logo} alt="" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            maiores laudantium aliquid fugit nulla soluta explicabo tempora
+            harum minus? Doloribus fugiat aliquam repudiandae quibusdam aliquid
+            eveniet fugit numquam illum cum!
+          </p>
+          <div className="footer-social-icons">
+            <img src={assets.facebook_icon} alt="" />
+            <img src={assets.twitter_icon} alt="" />
+            <img src={assets.linkedin_icon} alt="" />
+          </div>
+        </div>
+        <div className="footer-content-certer">
+          <h2>COMPANY</h2>
+          <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Delivery</li>
+            <li>Privacy Policies</li>
+          </ul>
+        </div>
+        <div className="food-content-right">
+          <h2>GET IN TOUCH</h2>
+          <ul>
+            <li>+1-212-456-7890</li>
+            <li>contact@tomato.com</li>
+          </ul>
+        </div>
+      </div>
+      <hr />
+      <p className="footer-copyright">
+        © Tomato.com, 2024 - All Right Reserved.
+      </p>
+    </div>
+  );
 };
 
 export default Footer;
