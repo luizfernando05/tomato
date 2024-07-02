@@ -4,6 +4,18 @@ import { assets } from "../../assets/admin_assets/assets";
 
 const Add = () => {
   const [image, setImage] = useState(false);
+  const [data, setData] = useState({
+    name: "",
+    description: "",
+    price: "",
+    category: "Salad",
+  });
+
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+  };
 
   return (
     <div className="add">
@@ -26,11 +38,19 @@ const Add = () => {
         </div>
         <div className="add-product-name flex-col">
           <p>Product Name</p>
-          <input type="text" name="name" placeholder="Type here..." />
+          <input
+            onChange={onChangeHandler}
+            value={data.name}
+            type="text"
+            name="name"
+            placeholder="Type here..."
+          />
         </div>
         <div className="add-product-description flex-col">
           <p>Product Description</p>
           <textarea
+            onChange={onChangeHandler}
+            value={data.description}
             name="description"
             rows="6"
             placeholder="Write content here..."
@@ -40,7 +60,7 @@ const Add = () => {
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Product Category</p>
-            <select name="category">
+            <select onChange={onChangeHandler} name="category">
               <option value="Salad">Salad</option>
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
@@ -53,7 +73,13 @@ const Add = () => {
           </div>
           <div className="add-price flex-col">
             <p>Product Price</p>
-            <input type="number" name="price" placeholder="$20" />
+            <input
+              onChange={onChangeHandler}
+              value={data.price}
+              type="number"
+              name="price"
+              placeholder="$20"
+            />
           </div>
         </div>
         <button type="submit" className="add-btn">
