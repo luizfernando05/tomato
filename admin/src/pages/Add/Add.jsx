@@ -41,6 +41,8 @@ const Add = () => {
       });
       setImage(false);
       toast.success(response.data.message);
+    } else {
+      toast.error(response.data.message);
     }
   };
 
