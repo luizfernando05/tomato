@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./LoginPopUp.css";
 import { assets } from "../../assets/frontend_assets/assets";
+import { StoreContext } from "../../context/StoreContext";
 
 const LoginPopUp = ({ setShowLogin }) => {
+  const { url } = useContext(StoreContext);
   const [currState, setCurrState] = useState("Sing Up");
   const [data, setData] = useState({
     name: "",
@@ -16,9 +18,13 @@ const LoginPopUp = ({ setShowLogin }) => {
     setData((data) => ({ ...data, [name]: value }));
   };
 
+  const onLogin = async (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div className="login-pop-up">
-      <form className="login-popup-container">
+      <form onSubmit={onLogin} className="login-popup-container">
         <div className="login-popuup-title">
           <h2>{currState}</h2>
           <img
@@ -57,7 +63,9 @@ const LoginPopUp = ({ setShowLogin }) => {
             required
           />
         </div>
-        <button>{currState === "Sing Up" ? "Create Account" : "Login"}</button>
+        <button type="submit">
+          {currState === "Sing Up" ? "Create Account" : "Login"}
+        </button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
           <p>By continuing, i agree to the terms of use and privacy policy.</p>
