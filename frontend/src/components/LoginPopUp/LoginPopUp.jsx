@@ -4,6 +4,17 @@ import { assets } from "../../assets/frontend_assets/assets";
 
 const LoginPopUp = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Sing Up");
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+  };
 
   return (
     <div className="login-pop-up">
@@ -20,10 +31,31 @@ const LoginPopUp = ({ setShowLogin }) => {
           {currState === "Login" ? (
             <></>
           ) : (
-            <input type="text" placeholder="Your name" required />
+            <input
+              name="name"
+              onChange={onChangeHandler}
+              value={data.name}
+              type="text"
+              placeholder="Your name"
+              required
+            />
           )}
-          <input type="email" placeholder="Your email" required />
-          <input type="password" placeholder="Password" required />
+          <input
+            name="email"
+            onChange={onChangeHandler}
+            value={data.email}
+            type="email"
+            placeholder="Your email"
+            required
+          />
+          <input
+            name="password"
+            onChange={onChangeHandler}
+            value={data.password}
+            type="password"
+            placeholder="Password"
+            required
+          />
         </div>
         <button>{currState === "Sing Up" ? "Create Account" : "Login"}</button>
         <div className="login-popup-condition">
