@@ -5,3 +5,5 @@ import stripe from "stripe";
 // placing user order for frontend
 
 const placeOrder = async (req, res) => {};
+
+export { placeOrder };
